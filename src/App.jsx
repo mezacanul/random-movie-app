@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
     console.log(API_KEY, BASE_URL);
   }, []);
-  
 
   const fetchRandomMovie = async () => {
     setLoading(true);
