@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -6,8 +6,13 @@ function App() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const API_KEY = '24a2cb30d073ca403d9c9cfa0b4ebb4f'; // Reemplaza con tu clave de TMDB
-  const BASE_URL = 'https://api.themoviedb.org/3';
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+
+  useEffect(() => {
+    console.log(API_KEY, BASE_URL);
+  }, []);
+  
 
   const fetchRandomMovie = async () => {
     setLoading(true);
